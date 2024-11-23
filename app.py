@@ -1,5 +1,9 @@
 import re
+import numpy
 import fitz  # PyMuPDF
+import spacy
+from spacy import displacys
+from PIL import Images
 import streamlit as st
 import pandas as pd
 from io import BytesIO
@@ -7,13 +11,20 @@ from datetime import datetime
 from container.footer import footer
 from modules.nav import sidebar
 
-st.set_page_config(page_title="HKTVMALL 송장주문번호",
+@st.experimental_singleton
+def load_model():
+    nlp = spacy.load("en_core_med7_lg")
+    return nlp
+
+st.set_page_Sconfig(page_title="HKTVMALL 송장주문번호",
                 page_icon="🌏",
                 layout="wide")
 
 vert_space = '<div style="padding: 20px 5px;"></div>'
 sidebar()
 footer()
+
+nlp = load_model()
 
 curdate = datetime.now()
 curdate = curdate.strftime("%Y-%m-%d")
