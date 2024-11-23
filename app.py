@@ -1,28 +1,26 @@
 import re
-import numpy
 import fitz  # PyMuPDF
-import spacy
-from spacy import displacys
-from PIL import Images
 import streamlit as st
 import pandas as pd
 from io import BytesIO
 from datetime import datetime
 from container.footer import footer
 from modules.nav import sidebar
+import spacy
+from spacy import displacy
 
-@st.experimental_singleton
-def load_model():
-    nlp = spacy.load("en_core_med7_lg")
-    return nlp
-
-st.set_page_Sconfig(page_title="HKTVMALL 송장주문번호",
+st.set_page_config(page_title="HKTVMALL 송장주문번호",
                 page_icon="🌏",
                 layout="wide")
 
 vert_space = '<div style="padding: 20px 5px;"></div>'
 sidebar()
 footer()
+
+@st.cache_resource
+def load_model():
+    nlp = spacy.load("en_core_web_sm")
+    return nlp
 
 nlp = load_model()
 
