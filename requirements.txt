@@ -1,4 +1,5 @@
 pandas
-fitz
+PyMuPDF
 openpyxl
 frontend
+https://huggingface.co/kormilitzin/en_core_med7_lg/resolve/main/en_core_med7_lg-any-py3-none-any.whl
