@@ -1,3 +1,4 @@
 pandas
 fitz
 openpyxl
+frontend
