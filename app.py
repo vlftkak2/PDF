@@ -6,8 +6,8 @@ from io import BytesIO
 from datetime import datetime
 from container.footer import footer
 from modules.nav import sidebar
-import spacy
-from spacy import displacy
+#import spacy
+#from spacy import displacy
 
 st.set_page_config(page_title="HKTVMALL 송장주문번호",
                 page_icon="🌏",
@@ -17,12 +17,12 @@ vert_space = '<div style="padding: 20px 5px;"></div>'
 sidebar()
 footer()
 
-@st.cache_resource
-def load_model():
-    nlp = spacy.load("en_core_web_sm")
-    return nlp
+#@st.cache_resource
+#def load_model():
+    #nlp = spacy.load("en_core_web_sm")
+    #return nlp
 
-nlp = load_model()
+#nlp = load_model()
 
 curdate = datetime.now()
 curdate = curdate.strftime("%Y-%m-%d")
